@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<h2>Emergency Contacts</h2>
+<form method="POST">
+<input name="name" placeholder="Contact Name" required>
+<input name="phone" placeholder="Contact Phone" required>
+<button>Add</button>
+</form>
+
+<ul>
+{% for c in contacts %}
+<li>{{ c.name }} - {{ c.phone }}</li>
+{% endfor %}
+</ul>
+
+<a href="/dashboard">Back</a>
+</div>
+{% endblock %}

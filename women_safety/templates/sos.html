@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<h2>Emergency SOS</h2>
+<form method="POST" id="sosForm">
+<input type="hidden" name="latitude" id="lat">
+<input type="hidden" name="longitude" id="lon">
+<button type="button" onclick="sendLocation()">Send SOS</button>
+</form>
+</div>
+
+<script>
+function sendLocation() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        document.getElementById("lat").value = position.coords.latitude;
+        document.getElementById("lon").value = position.coords.longitude;
+        document.getElementById("sosForm").submit();
+    });
+}
+</script>
+{% endblock %}
